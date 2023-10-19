@@ -1,0 +1,140 @@
+body {
+    background-image: url('bg tred.svg');
+    background-size: cover;
+    /* Ajusta el tamaño del fondo para cubrir todo el contenedor */
+    background-repeat: no-repeat;
+    /* Evita que el fondo se repita */
+    background-attachment: fixed;
+    /* Fija el fondo para que no se desplace con el contenido */
+}
+
+#mensaje-girar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fondo oscuro semitransparente */
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 99;
+}
+
+.container {
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 0.75fr 2fr 0.75fr; 
+    grid-template-rows: 0.5fr 2.5fr 0.5fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". . ."
+      ". . ."
+      ". . ."; 
+  }
+
+.tbox{
+
+
+    
+}
+
+
+
+#entrar {
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    background-image: url('full.svg');
+    background-position: center;
+    width: 40px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent; /* Fondo transparente */
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.3); /* Color blanco translúcido */
+    backdrop-filter: blur(10px); /* Aplicar desenfoque */
+    border-radius: 100px;
+    z-index: 98;
+}
+
+#salir{
+    background-image: url('exfull.svg');
+    background-position: center;
+    width: 28px;
+    height: 28px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent; /* Fondo transparente */
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.menu {
+    position: absolute;
+    top: 90px;
+    right: 90px;
+    display: flex;
+    transform: rotate(270deg);
+}
+
+.menu li {
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform-origin: 80px;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+    transform: rotate(0deg) translateX(30px) translateY(15px);
+}
+
+.menu.active li {
+    transform:  translateY(0px) translateX(-50px) rotate(calc(360deg / 9 * var(--i)));
+}
+
+.menu li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #edb0fc;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 3px 4px rgba(142, 229, 255, 0.76);
+    transition: 0.5s;
+}
+
+.bope {
+    transform:  rotate(90deg);
+}
+
+.toggle {
+    background-image: url('boclo.svg');
+    background-size: contain;
+    transform: rotate(90deg);
+    position: absolute;
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    z-index: 50;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2em;
+    transition: transform 1.25s;
+    background-color: rgba(255, 255, 255, 0.3); /* Color blanco translúcido */
+    backdrop-filter: blur(10px); /* Aplicar desenfoque */
+}
+
+.menu.active .toggle {
+    background-image: url('boope.svg');
+    background-size: contain;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="mensaje-girar" class="container">
+        <div class="tbox">hola<br>mundo</div>
+    </div>
+
+    <button id="entrar"></button>
+
+    <div class="menu">
+        <div class="toggle">
+        </div>
+        <li style="--i:0" class="binfo">
+            <a href="#"> in </a>
+        </li>
+        <li style="--i:1" class="bhome">
+            <a href="#"> ho </a>
+        </li>
+        <li style="--i:2" class="bexit">
+            <a href="#"> <button id="salir"></button> </a>
+        </li>
+    </div>
+    </div>
+
+    <script>
+        var btnEntrar = document.getElementById('entrar');
+        var btnSalir = document.getElementById('salir');
+
+        btnEntrar.addEventListener('click', function () {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+            btnEntrar.style.opacity = '0'; // Ocultar el botón de entrar
+        });
+
+        btnSalir.addEventListener('click', function () {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+            btnEntrar.style.opacity = '1'; // Mostrar el botón de entrar
+        });
+
+    </script>
+
+
+
+    <script>
+        let toggle = document.querySelector('.toggle');
+        let menu = document.querySelector('.menu');
+        toggle.onclick = function () {
+            menu.classList.toggle('active')
+        }
+    </script>
+
+</body>
+
+</html>
